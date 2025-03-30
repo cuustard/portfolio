@@ -1,6 +1,15 @@
+:root {
+  --text: #080e12;
+  --background: #fbfdfe;
+  --primary: #3f4f5a;
+  --secondary: #94c4e6;
+  --accent: #51a5e1;
+}
+
 body {
   font-family: "Roboto Slab", sans-serif;
   font-weight: 400;
+  color: var(--text);
   width: 100vw;
   height: 100vh;
   padding: 0;
@@ -50,6 +59,7 @@ main {
 }
 
 nav {
+  font-family: "Roboto Condensed", sans-serif;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -63,13 +73,12 @@ nav a {
   padding: 15px;
   border-radius: 5px;
   text-decoration: none;
-  color: black;
+  color: var(--text);
   transition: 0.3s ease;
 }
 
 nav a:hover {
-  background-color: gray;
-  color: white;
+  background-color: var(--accent);
 }
 
 nav a:active {
@@ -78,7 +87,7 @@ nav a:active {
 }
 
 #footer {
-  background-color: grey;
+  background-color: var(--background);
   padding: 40px;
   display: flex;
   justify-content: center;
@@ -101,7 +110,7 @@ nav a:active {
   border: none;
   padding: 0;
   cursor: pointer;
-  background-color: white;
+  background-color: transparent;
 }
 
 #themeToggleImg:active {
@@ -111,12 +120,17 @@ nav a:active {
 
 /* Dark mode styles */
 body.dark-mode {
-  background-color: #121212;
+  background-color: #6e6e6e;
   color: #ffffff;
 }
 
 body.dark-mode nav a {
   color: #ffffff;
+}
+body.dark-mode nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 body.dark-mode nav a:hover {
@@ -129,6 +143,68 @@ body.dark-mode #footer {
 }
 
 body.dark-mode #themeToggle {
-  background-color: #121212;
+  background-color: transparent;
   color: #ffffff;
+}
+
+/* __________ CONTACT FORM __________ */
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+  max-width: 60%;
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  margin: 5px;
+}
+
+.inputBox {
+  width: 100%;
+  padding: 10px;
+  margin: 0 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-family: var(--paragraph-font-family);
+  resize: none;
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+.contactFormIcon {
+  stroke: black;
+  stroke-width: 1.5;
+  width: 20px;
+  height: 20px;
+  stroke-linecap: "round";
+  stroke-linejoin: "round";
+  fill: none;
+}
+
+button {
+  border: none;
+  margin: 10px 10px;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  transition: 0.3s ease;
+  font-family: var(--paragraph-font-family);
+  color: var(--dark-text-color);
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: var(--second-bg-color);
+  color: white;
+}
+
+button:active {
+  transform: scale(0.95);
+  transition: 0.1s ease;
 }

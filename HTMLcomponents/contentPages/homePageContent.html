@@ -1,4 +1,62 @@
 <section>
-    <h1>Hi, I'm Jake Ethan Evans</h1>
-    <p>Hello</p>
+  <h1>Hi, I am<br />Jake Evans</h1>
+  <p>
+    Undergraduate Computer Science Student at
+    <a href="https://www.lancaster.ac.uk/" target="_blank"
+      >Lancaster University</a
+    >
+  </p>
+  <div id="projectsContainer"></div>
+  <div id="contactFormContainer">
+    <form
+      id="contactForm"
+      action="https://formspree.io/f/mgvalldq"
+      method="POST"
+    >
+      <label for="name"><img src="icons/user.svg" alt="User Icon" /></label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Name *"
+        required
+        autocomplete="off"
+      />
+      <label for="email"
+        ><img src="icons/at-sign.svg" alt="Email Icon"
+      /></label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address *"
+        required
+        autocomplete="on"
+      />
+      <label for="subject"
+        ><img src="icons/tag.svg" alt="Subject Icon"
+      /></label>
+      <input
+        type="text"
+        name="subject"
+        placeholder="Subject *"
+        required
+        autocomplete="off"
+      />
+      <label for="message"
+        ><img src="icons/message-square.svg" alt="Message Icon"
+      /></label>
+      <textarea
+        name="message"
+        id="message"
+        placeholder="Message *"
+        maxlength="1000"
+        required
+        autocomplete="off"
+      ></textarea>
+      <button id="submitButton" type="submit">
+        <img src="icons/send.svg" alt="Send Icon" />
+      </button>
+    </form>
+  </div>
 </section>
+
+<script src="main.js"></script>
