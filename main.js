@@ -16,41 +16,27 @@ function loadComponent(elementId, filePath, callback) {
 
 // Load reusable components
 document.addEventListener("DOMContentLoaded", function () {
-  loadComponent("navBar", "HTMLcomponents/navBar.html");
-  loadComponent("footer", "HTMLcomponents/footer.html");
-  loadComponent("content", "HTMLcomponents/contentPages/homePageContent.html");
+  const urlParams = new URLSearchParams(window.location.search);
+  const page = urlParams.get("page");
+  const project = urlParams.get("project");
 
-  // Set page-specific content
-  function setPageContent() {
-    const contentMap = {
-      "index.html": "<h1>Hello, I'm Jake Evans.</h1>",
-      "about.html": "HTMLcomponents/contentPages/aboutPageContents.html",
+  if (page) {
+    const pageMap = {
+      about: "HTMLcomponents/aboutPageContents.html",
     };
-    const currentPage = window.location.pathname.split("/").pop();
-    if (typeof contentMap[currentPage] === "string") {
-      if (contentMap[currentPage].endsWith(".html")) {
-        loadComponent("content", contentMap[currentPage]);
-      } else {
-        document.getElementById("content").innerHTML = contentMap[currentPage];
-      }
+
+    if (pageMap[page]) {
+      document.title = "About Me - Jake Evans"; // Set title for 'about' page
+      loadComponent("content", pageMap[page]);
     } else {
+      document.title = "Page Not Found - Jake Evans";
       document.getElementById("content").innerHTML = "<h1>Page Not Found</h1>";
     }
-  }
-
-  setPageContent();
-
-  // Auto-adjust textarea height
-  const messageBox = document.getElementById("message");
-  if (messageBox) {
-    function adjustHeight() {
-      messageBox.style.height = "auto";
-      messageBox.style.height = `${messageBox.scrollHeight}px`;
-    }
-    adjustHeight();
-    messageBox.addEventListener("input", adjustHeight);
-    messageBox.addEventListener("keypress", adjustHeight);
+  } else if (project) {
+    document.title = `Project: ${project} - Jake Evans`; // Set title for projects
+    loadComponent("content", `HTMLcomponents/${project}.html`);
   } else {
-    console.error('Element with id "message" not found');
+    document.title = "Home - Jake Evans"; // Default title for home page
+    loadComponent("content", "HTMLcomponents/homePageContent.html");
   }
 });

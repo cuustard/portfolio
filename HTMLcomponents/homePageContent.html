@@ -1,0 +1,110 @@
+<section>
+  <h1>Hi, I am<br />Jake Evans</h1>
+  <p>
+    Undergraduate Computer Science Student at
+    <a href="https://www.lancaster.ac.uk/" target="_blank"
+      >Lancaster University</a
+    >
+  </p>
+  <h2>Featured Projects</h2>
+  <div id="projectsContainer">
+    <a href="index.html?project=projectExampleOne" class="aProjectBox">
+      <div class="projectImageContainer">
+        <img src="/images/placeholderimage.png" alt="Project Image" />
+      </div>
+      <div class="projectInfoContainer">
+        <h5 class="projectTitle">Example One</h5>
+        <p class="projectDescription">Project Description</p>
+        <div class="projectTags">
+          <span class="projectTag type">Game</span>
+          <span class="projectTag language">C#</span>
+        </div>
+      </div>
+    </a>
+    <a href="index.html?project=projectExampleTwo" class="aProjectBox">
+      <div class="projectImageContainer">
+        <img src="/images/placeholderimage2.png" alt="Project Image" />
+      </div>
+      <div class="projectInfoContainer">
+        <h5 class="projectTitle">Example Two</h5>
+        <p class="projectDescription">Project Description</p>
+        <div class="projectTags">
+          <span class="projectTag type">Website</span>
+          <span class="projectTag language">JavaScript</span>
+          <span class="projectTag language">Python</span>
+        </div>
+      </div>
+    </a>
+    <a href="index.html?project=projectExampleThree" class="aProjectBox">
+      <div class="projectImageContainer">
+        <img src="/images/placeholderimage3.png" alt="Project Image" />
+      </div>
+      <div class="projectInfoContainer">
+        <h5 class="projectTitle">Example Three</h5>
+        <p class="projectDescription">Project Description</p>
+        <div class="projectTags">
+          <span class="projectTag type">App</span>
+          <span class="projectTag language">Java</span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div id="recentContainer">
+    <h2>What I've Been Up To</h2>
+  </div>
+  <h2>Contact Me</h2>
+  <div id="contactFormContainer">
+    <form action="https://formspree.io/f/mgvalldq" method="POST">
+      <div class="formRow">
+        <label for="name"><img src="icons/user.svg" alt="User Icon" /></label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name *"
+          required
+          autocomplete="off"
+        />
+      </div>
+      <div class="formRow">
+        <label for="email"
+          ><img src="icons/at-sign.svg" alt="Email Icon"
+        /></label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address *"
+          required
+          autocomplete="on"
+        />
+      </div>
+      <div class="formRow">
+        <label for="subject"
+          ><img src="icons/tag.svg" alt="Subject Icon"
+        /></label>
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject *"
+          required
+          autocomplete="off"
+        />
+      </div>
+      <div class="formRow">
+        <label for="message"
+          ><img src="icons/message-square.svg" alt="Message Icon"
+        /></label>
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Message *"
+          maxlength="1000"
+          required
+          autocomplete="off"
+        ></textarea>
+      </div>
+      <button id="submitButton" type="submit">
+        <img src="icons/send.svg" alt="Send Icon" />
+      </button>
+    </form>
+  </div>
+</section>
