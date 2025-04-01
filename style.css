@@ -13,18 +13,18 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-size: 100%;
 }
 
 body {
   font-family: var(--paragraphFont);
   font-weight: 400;
   color: var(--text);
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 h1,
@@ -34,10 +34,6 @@ h4,
 h5 {
   font-family: var(--headingFont);
   font-weight: 700;
-}
-
-html {
-  font-size: 100%;
 }
 
 h1 {
@@ -62,16 +58,16 @@ small {
 main {
   flex: 1;
   margin: auto;
-  max-width: 1000px;
 }
 
 #content {
+  border: 1px solid blue;
+  width: 100vw;
   text-align: center;
 }
 
-/* __________ NAV __________ */
-
 nav {
+  background-color: var(--background);
   font-family: var(--headingFont);
   padding: 10px;
   display: flex;
@@ -96,14 +92,15 @@ nav a:hover {
 
 nav a:active {
   transform: scale(0.95);
-  transition: 0.1s ease;
 }
 
-#navBar {
-  position: relative;
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--background);
+  width: 100%;
 }
-
-/* __________ CONTACT FORM __________ */
 
 #contactFormContainer {
   display: flex;
@@ -136,7 +133,6 @@ input,
 textarea {
   flex: 1;
   padding: 13px;
-  margin: 0px;
   border: 1px solid black;
   border-radius: var(--borderRadius);
   font-family: var(--paragraphFont);
@@ -144,7 +140,6 @@ textarea {
 
 textarea {
   resize: none;
-  field-sizing: content;
 }
 
 form button {
@@ -156,17 +151,11 @@ form button {
   border-radius: var(--borderRadius);
   cursor: pointer;
   transition: background-color 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  field-sizing: content;
 }
 
-button:hover {
+form button:hover {
   background-color: var(--accent);
 }
-
-/* __________ SOCIAL MEDIA LINKS __________ */
 
 ul {
   display: flex;
@@ -176,22 +165,15 @@ ul {
   padding: 0;
 }
 
-ul li a {
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-}
-
 ul li a img {
   width: 30px;
   height: 30px;
   transition: transform 0.3s ease;
 }
+
 ul li a img:hover {
   transform: scale(1.1);
 }
-
-/* __________ PROJECTS __________ */
 
 #projectsContainer {
   display: flex;
@@ -207,8 +189,8 @@ ul li a img:hover {
   border-radius: var(--borderRadius);
   width: 300px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  text-decoration: none; /* Remove underline for links */
-  color: inherit; /* Inherit text color */
+  text-decoration: none;
+  color: inherit;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -224,8 +206,8 @@ ul li a img:hover {
 .projectImageContainer img {
   border-radius: 5px 5px 0 0;
   width: 100%;
-  height: 200px; /* Set a fixed height */
-  object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
+  height: 200px;
+  object-fit: cover;
   filter: brightness(0.5);
 }
 
@@ -268,7 +250,7 @@ p a {
   text-decoration: none;
 }
 
-.projectTags {
+.projectImageContainer::after {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
@@ -299,7 +281,6 @@ p a {
   display: flex;
   justify-content: center;
   margin-top: auto;
-  flex-shrink: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -307,4 +288,27 @@ p a {
 
 #title {
   color: var(--accent);
+}
+
+a[href^="http"]::after {
+  content: "";
+  width: 0.8em;
+  aspect-ratio: 1 / 1;
+  margin-left: 3px;
+  background: currentColor;
+  display: inline-block;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Group'%3E%3Cg id='Group_2'%3E%3Cpath id='Path' d='M12 12L21 3V10V3H14' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath id='Path_2' d='M9 3H5C3.895 3 3 3.895 3 5V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V15' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+ul#socials a[href^="http"]::after {
+  display: none;
+}
+
+.contentSection {
+  padding: 30px;
+  border: 1px solid red;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
