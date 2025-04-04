@@ -1,6 +1,6 @@
 :root {
   --text: #111213;
-  --background: #f3f5f7;
+  --background: #ffffff;
   --primary: #5781b7;
   --secondary: #8ab0df;
   --accent: #629ee8;
@@ -61,7 +61,6 @@ main {
 }
 
 #content {
-  border: 1px solid blue;
   width: 100vw;
   text-align: center;
 }
@@ -306,7 +305,10 @@ ul#socials a[href^="http"]::after {
 
 .contentSection {
   padding: 30px;
-  border: 1px solid red;
+}
+
+#darkerSection {
+  background-color: #f4f4f4;
 }
 
 ::-webkit-scrollbar {
